@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="timer"></div>
+<div id="allQuestions">
+	<div class="" class="" id="question1"></div>
+	<div id="1answer1" class="correct"></div>
+
+
+</div>
+<div id="results"></div>
+
+<script type="text/javascript">
+var intervalId
+var countdown = 5
+var correct
+	var question1 = {
+		question: "Who won the most NBA titles in the 90's",
+		answer1: "Chicago",
+		answer2: "Detroit"
+	}
+
+	//more objects for more questions
+
+function start(){
+	$("#allQuestions").html()
+	$("#question1").html(question1.question)
+	$("#1answer1").html(question1.answer1)
+	//rest of stuff
+	timeStart()
+}
+
+
+function timeStart(){
+	intervalId = setInterval(timer, 1000);
+}
+
+function timer(){
+	countdown--;
+	$("#timer").html(countdown);
+	if (countdown === 0) {
+		//check how many right
+		//if 4 right:
+		correct = 4
+		stopGame()
+		clearInterval(intervalId)
+	}
+}
+
+function stopGame(){
+	$("#allQuestions").empty();
+	$("#results").html("game over")
+	$("#results").append("you got: "+correct+" right")
+}
+
+
+
+
+
+start()
+
+</script>
+
+
+
+	
+</body>
+</html>

@@ -3,6 +3,11 @@
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>Trivia</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,70 +36,129 @@ background-color: skyblue;
 
 <div class="jumbotron text-center">
   <h1>Trivia Game</h1> 
-  <p>You have 30 seconds!</p> 
-  <div id = "timer"></div>
+  <p>You have <span id = "timer"></span> seconds!</p> 
+  
 </div>
 
 <div class= "wrapper">
 <div class="container text-center">
   <h2>Question 1</h2>
-  <div class="panel panel-default">Test Question
-    <div class="panel-body1">trtrtr</div>
+  <div class="panel panel-default"> Question 1
+    <div class="panel-body1">Who won the most NBA titles in the 90's?</div>
   </div>
 </div>
 
 
 <div class="container">
-  <h2></h2>
+  <h2 id = "notSureYet"></h2>
   <p>Your Choices</p>
   <form>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">A Chicago
+    <label class="checkbox-inline" id = "allQuestions">
+      <input type="checkbox" value="correct" id = "correct1">A Chicago
     </label>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">B Portland
+      <input type="checkbox" value="false" class = "false">B Detroit
     </label>
     <label class="checkbox-inline">
-      <input type="checkbox" value="">C Detroit
-    </label>
-
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">D Boston
-    </label>
-  </form>
-</div>
-
-<div class= "wrapper">
-<div class="container text-center">
-  <h2>Question 2</h2>
-  <div class="panel panel-default">Test Question
-    <div class="panel-body1">trtrtr</div>
-  </div>
-</div>
-
-
-<div class="container">
-  <h2></h2>
-  <p>Your Choices</p>
-  <form>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">A Chicago
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">B Portland
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">C Detroit
+      <input type="checkbox" value="false" class = "false">C Boston
     </label>
 
     <label class="checkbox-inline">
-      <input type="checkbox" value="">D Boston
+      <input type="checkbox" value="false" class = "false">D NewYork
     </label>
   </form>
 </div>
 
 
 
+<script type="text/javascript">
+console.log()
+  var countdown = 30
+  var correct 
+  var intervalId
+
+  var answers1 = {
+    answer1: "Chicago",
+    answer2: "Detroit",
+    answer3: "Boston",
+    answer4: "New York"
+  }
+
+  
+
+function timeStart(){
+timeS()
+
+}
+  countdown--;
+
+  $("#timer").html(countdown);
+  if (countdown === 0){
+
+
+    correct = 4
+    stopGame()
+    clearInterval(intervalId)
+  }
+
+
+function timeS(){
+  intervalId = setInterval(timer, 1000);
+}
+
+
+
+
+
+   function stopGame(){
+        alert("GAMEOVER");
+
+
+
+   }
+
+timeStart();
+
+
+
+
+
+
+
+</script>
 </body>
-</div>
+
+
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
