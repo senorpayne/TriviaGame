@@ -15,12 +15,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   .jumbotron {
-      //*background-color:grey;*// 
+      background-color:grey;
       color: #fff;
 
       background-image: url("assets/images/milky-way-2695569_960_720.jpg");
-
-      
+   
 
   }
 
@@ -34,9 +33,14 @@ background-color: skyblue;
 </head>
 <body>
 
+  <button type="button" class="btn btn-danger text-center" id = "start_button">Start time</button>
+
 <div class="jumbotron text-center">
   <h1>Trivia Game</h1> 
   <p>You have <span id = "timer"></span> seconds!</p> 
+
+  <h3 id = "wins"></h3><br>
+  <h3 id = "losses"></h3>
   
 </div>
 
@@ -73,10 +77,12 @@ background-color: skyblue;
 
 <script type="text/javascript">
 console.log()
-  var countdown = 30
+  var countdown = 30;
   var correct 
   var intervalId
-
+  var userPick
+  var incorrect 
+  var correct1 =("#correct1")
   var answers1 = {
     answer1: "Chicago",
     answer2: "Detroit",
@@ -84,40 +90,63 @@ console.log()
     answer4: "New York"
   }
 
+
   
 
 function timeStart(){
 timeS()
 
-}
-  countdown--;
 
-  $("#timer").html(countdown);
+
+  
   if (countdown === 0){
 
-
-    correct = 4
+    
     stopGame()
     clearInterval(intervalId)
-  }
+
+
+  }else{
+    $("#timer").html(countdown);
+  countdown--;
+  }}
 
 
 function timeS(){
-  intervalId = setInterval(timer, 1000);
-}
 
 
+  $("#start_button").click(function(){
+
+counter = setInterval(timer, 1000); 
+return;
+})
+
+
+  
+ if(userPick===correct1){
+
+  correct++;
+  $("#wins").text(correct);
+
+}else{
+
+  alert("wrong");
+  incorrect++;
+
+  $("#losses").text(incorrect);
+}}
 
 
 
    function stopGame(){
-        alert("GAMEOVER");
+
+    
 
 
 
    }
 
-timeStart();
+   timeStart()
 
 
 
