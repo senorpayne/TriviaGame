@@ -78,10 +78,10 @@ background-color: skyblue;
 <script type="text/javascript">
 console.log()
   var countdown = 30;
-  var correct 
+  var correct = 1;
   var intervalId
   var userPick
-  var incorrect 
+  var incorrect = 1;
   var correct1 =("#correct1")
   var answers1 = {
     answer1: "Chicago",
@@ -109,7 +109,30 @@ timeS()
   }else{
     $("#timer").html(countdown);
   countdown--;
-  }}
+  }
+
+
+
+
+}
+
+
+function game(){
+
+  $("#correct1").click(function(){
+
+    if ($(this).prop('checked')){
+      alert("correct");
+      correct++
+    }
+    else{  alert("wrong");
+
+            incorrect++            }
+  })
+
+}
+
+
 
 
 function timeS(){
@@ -138,9 +161,15 @@ return;
 
 
 
+
+
+
+
+
+
    function stopGame(){
 
-    
+
 
 
 
